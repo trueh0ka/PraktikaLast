@@ -1,0 +1,45 @@
+﻿<Window xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="PraktikaLast.admin_dannie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PraktikaLast"
+        mc:Ignorable="d"
+        Title="admin_dannie" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Menu Margin="40,10,40,336">
+            <Button x:Name="button_roli" Width="200" Content="Роли" Click="button_roli_Click"/>
+            <Button x:Name="Button_sotrudniki" Width="200" Content="Данные сотрудников" Cursor="Hand" Click="Button_sotrudniki_Click" />
+            <Button x:Name="Button_sotrudniki_Copy" Width="200" Content="Данные для входа" Cursor="Hand" />
+        </Menu>
+        <DataGrid x:Name="RoliGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,95,264,113" SelectionChanged="RoliGrid_SelectionChanged"/>
+        <ComboBox x:Name="combo" materialDesign:HintAssist.Hint="Номер должности" HorizontalAlignment="Left" Margin="400,358,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Button_udalenie"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Удалить"
+            Margin="541,163,10,-204" Click="Button_udalenie_Click"/>
+        <Button x:Name="button_izmena"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Изменить"
+            Margin="541,195,10,-76" Click="button_izmena_Click"/>
+        <Button x:Name="Button_dobavit"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Добавить"
+            Margin="541,132,10,-44" Cursor="Hand" Click="Button_dobavit_Click"/>
+        <TextBox x:Name="RolBox"
+            Style="{StaticResource MaterialDesignFilledTextBox}"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Логин" Margin="541,103,10,0">
+            <TextBox.Text>
+                <Binding
+                    Path="Text1"
+                    UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <PasswordBox x:Name="password"
+            Style="{StaticResource MaterialDesignFilledPasswordBox}"
+            IsEnabled="{Binding IsChecked, ElementName=MaterialDesignFilledPasswordBoxEnabledComboBox}"
+            materialDesign:HintAssist.Hint="Password" Margin="541,173,10,200" />
+    </Grid>
+</Window>

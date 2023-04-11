@@ -1,0 +1,41 @@
+﻿<Window xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="PraktikaLast.manager2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PraktikaLast"
+        mc:Ignorable="d"
+        Title="manager2" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Menu Margin="158,10,157,338">
+            <Button x:Name="button_roli" Width="200" Content="Категории" Click="button_roli_Click"/>
+            <Button x:Name="Button_sotrudniki" Width="200" Content="Товар" Cursor="Hand"/>
+        </Menu>
+        <DataGrid x:Name="RoliGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,95,264,81" SelectionChanged="RoliGrid_SelectionChanged"/>
+        <Button x:Name="Button_udalenie"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Удалить"
+            Margin="541,163,10,-204" Click="Button_udalenie_Click"/>
+        <Button x:Name="button_izmena"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Изменить"
+            Margin="541,195,10,-76" Click="button_izmena_Click"/>
+        <Button x:Name="Button_dobavit"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Добавить"
+            Margin="541,132,10,-44" Cursor="Hand" Click="Button_dobavit_Click"/>
+        <TextBox x:Name="nazvaniebox"
+            Style="{StaticResource MaterialDesignFilledTextBox}"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Название" Margin="541,101,10,0" Text="{Binding Text1, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="stoimostbox"
+            Style="{StaticResource MaterialDesignFilledTextBox}"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Стоимость" Margin="541,151,10,0" Text="{Binding Text1, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="kolichestvobox"
+            Style="{StaticResource MaterialDesignFilledTextBox}"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Количество на складе" Margin="541,201,10,0" Text="{Binding Text1, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="combo" materialDesign:HintAssist.Hint="Номер категории" HorizontalAlignment="Left" Margin="400,358,0,0" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

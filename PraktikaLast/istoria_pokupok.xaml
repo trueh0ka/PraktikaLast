@@ -1,0 +1,44 @@
+﻿<Window xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="PraktikaLast.istoria_pokupok"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PraktikaLast"
+        mc:Ignorable="d"
+        Title="istoria_pokupok" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Menu Margin="121,10,120,334">
+            <Button x:Name="button_roli" Width="145" Content="Покупатель" Click="button_roli_Click"/>
+            <Button x:Name="Button_sotrudniki" Width="145" Content="Тип оплаты" Cursor="Hand" Click="Button_sotrudniki_Click"/>
+            <Button x:Name="Button_sotrudniki_Copy1" Width="145" Content="История покупок" Cursor="Hand"/>
+        </Menu>
+        <DataGrid x:Name="RoliGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,95,264,10" SelectionChanged="RoliGrid_SelectionChanged"/>
+        <Button x:Name="Button_udalenie"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Удалить"
+            Margin="541,163,10,-204" Click="Button_udalenie_Click" Cursor="Hand" />
+        <Button x:Name="button_izmena"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Изменить"
+            Margin="541,195,10,-76" Click="button_izmena_Click"/>
+        <Button x:Name="Button_dobavit"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Content="Добавить"
+            Margin="541,132,10,-44" Click="Button_dobavit_Click" />
+        <TextBox x:Name="RolBox"
+            Style="{StaticResource MaterialDesignFilledTextBox}"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="Количество" Margin="541,69,10,0">
+            <TextBox.Text>
+                <Binding
+                    Path="Text1"
+                    UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <ComboBox x:Name="combo_pokupatel" materialDesign:HintAssist.Hint="Номер покупателя" HorizontalAlignment="Left" Margin="594,224,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox x:Name="combo_tovar" materialDesign:HintAssist.Hint="Номер товара" HorizontalAlignment="Left" Margin="594,194,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox x:Name="combo_sotdudnik" materialDesign:HintAssist.Hint="Номер сотрудника" HorizontalAlignment="Left" Margin="594,164,0,0" VerticalAlignment="Top" Width="144"/>
+        <ComboBox x:Name="combo_tip" materialDesign:HintAssist.Hint="Номер типа оплаты" HorizontalAlignment="Left" Margin="594,134,0,0" VerticalAlignment="Top" Width="144"/>
+    </Grid>
+</Window>

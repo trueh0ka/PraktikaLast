@@ -1,0 +1,37 @@
+﻿<Window x:Class="PraktikaLast.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PraktikaLast"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="button_avtorizacii">
+        <Button
+            Style="{StaticResource MaterialDesignPaperDarkButton}"
+            Content="Авторизоваться" Margin="0,356,0,10" Click="Button_Click"/>
+        <TextBox x:Name="login"
+  Style="{StaticResource MaterialDesignFilledTextBox}"
+  VerticalAlignment="Top"
+  materialDesign:HintAssist.Hint="Login" Margin="0,149,0,0">
+            <TextBox.Text>
+                <Binding
+                    Path="Text1"
+                    UpdateSourceTrigger="PropertyChanged">
+                    
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <StackPanel Margin="0,217,0,145">
+            <PasswordBox x:Name="password"
+                Style="{StaticResource MaterialDesignFilledPasswordBox}"
+                IsEnabled="{Binding IsChecked, ElementName=MaterialDesignFilledPasswordBoxEnabledComboBox}"
+                materialDesign:HintAssist.Hint="Password" />
+        </StackPanel>
+        <TextBlock
+            Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+            Text="Авторизация" Margin="150,46,150,318" TextAlignment="Center" />
+        <Frame x:Name="frame" Grid.Row="1" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
